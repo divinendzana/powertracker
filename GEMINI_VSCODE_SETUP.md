@@ -406,7 +406,7 @@ Ajoute à ton prompt:
 
 ## 🎉 C'est prêt!
 
-Tu es maintenant configuré pour utiliser Gemini dans ton projet CAMTEL!
+Tu es maintenant configuré pour utiliser Gemini dans ton projet POWERTRACK!
 
 **Prochaines étapes:**
 1. Lis attentivement GEMINI.md
@@ -423,6 +423,6 @@ Tu es maintenant configuré pour utiliser Gemini dans ton projet CAMTEL!
 
 ---
 
-**Créé pour:** Projet CAMTEL - Plateforme de Gestion de Carburant  
+**Créé pour:** Projet powertracker - Plateforme de Gestion de Carburant  
 **Version:** 1.0  
 **Dernière mise à jour:** 2024
