@@ -40,6 +40,7 @@ from .serializers import (
 )
 from .permissions import (
     IsAdministratrice,
+    IsAdministratriceOuEmployeSite,
     IsEmploye,
     IsEmployeOwnSite,
 )
@@ -237,6 +238,7 @@ class EmployeViewSet(viewsets.ModelViewSet):
                 status=status.HTTP_400_BAD_REQUEST,
             )
         employe.set_pin(new_pin)
+        employe.save(update_fields=['pin_hash', 'pin_salt'])
         return Response({'detail': 'PIN réinitialisé avec succès.'})
 
 
@@ -251,7 +253,7 @@ class CoupureViewSet(viewsets.ModelViewSet):
     def get_permissions(self):
         if self.action in ['list', 'retrieve']:
             return [IsAdministratrice()]
-        return [IsEmployeOwnSite()]
+        return [IsAdministratriceOuEmployeSite()]
 
     def get_queryset(self):
         queryset = self.queryset
@@ -333,7 +335,7 @@ class SessionGroupeViewSet(viewsets.ModelViewSet):
     def get_permissions(self):
         if self.action in ['list', 'retrieve']:
             return [IsAdministratrice()]
-        return [IsEmployeOwnSite()]
+        return [IsAdministratriceOuEmployeSite()]
 
     def get_queryset(self):
         queryset = self.queryset
@@ -412,7 +414,7 @@ class PleineCarburantViewSet(viewsets.ModelViewSet):
     def get_permissions(self):
         if self.action in ['list', 'retrieve']:
             return [IsAdministratrice()]
-        return [IsEmployeOwnSite()]
+        return [IsAdministratriceOuEmployeSite()]
 
     def get_queryset(self):
         queryset = self.queryset
@@ -465,7 +467,7 @@ class ConsommationElectriqueViewSet(viewsets.ModelViewSet):
     def get_permissions(self):
         if self.action in ['list', 'retrieve']:
             return [IsAdministratrice()]
-        return [IsEmployeOwnSite()]
+        return [IsAdministratriceOuEmployeSite()]
 
     def get_queryset(self):
         queryset = self.queryset

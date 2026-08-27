@@ -96,7 +96,7 @@ class CalculateurRatioCarburant:
 
         results = []
         for site in Site.objects.filter(actif=True):
-            obj = self.calculer(site_id=site.id, mois=mois)
+            obj = self.calculer(site_id=site.id, mois_annee=mois)
             if obj:
                 results.append(obj)
         return results

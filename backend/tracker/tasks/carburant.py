@@ -6,6 +6,10 @@ from ..services import CalculateurRatioCarburant
 @shared_task
 def calculer_ratio_carburant(site_id, mois_annee):
     """Tâche Celery : calcule le ratio carburant pour un site et un mois."""
+    if isinstance(mois_annee, str):
+        from datetime import datetime
+        mois_annee = datetime.strptime(mois_annee[:10], '%Y-%m-%d').date()
+
     service = CalculateurRatioCarburant()
     return service.calculer(site_id=site_id, mois_annee=mois_annee)
 

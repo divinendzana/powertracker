@@ -91,9 +91,22 @@ class Employe(BaseModel):
         if not self.pin_hash:
             return False
         try:
-            return bcrypt.checkpw(plain_pin.encode('utf-8'), self.pin_hash.encode('utf-8'))
+            return bcrypt.checkpw(
+                plain_pin.encode('utf-8'), self.pin_hash.encode('utf-8'))
         except ValueError:
             return False
+
+    @property
+    def is_authenticated(self):
+        """
+        Requis par DRF/Django : l'authentification JWT personnalisée
+        résout les tokens vers une instance Employe.
+        """
+        return self.actif
+
+    @property
+    def is_anonymous(self):
+        return False
 
 
 class Coupure(BaseModel):

@@ -238,7 +238,12 @@ class CalculRatioCarburantSerializer(serializers.ModelSerializer):
             'notes_calcul',
             'timestamp_calcul',
         ]
-        read_only_fields = '__all__'
+        read_only_fields = (
+            'site', 'mois_annee', 'ratio_litres_par_heure',
+            'total_litres_periode', 'total_heures_groupe',
+            'nombre_pleins_periode', 'nombre_sessions_groupe',
+            'donnees_suffisantes', 'notes_calcul', 'timestamp_calcul',
+        )
 
 
 class SeuillAlerteSerializer(serializers.ModelSerializer):
@@ -294,7 +299,14 @@ class AlerteSerializer(serializers.ModelSerializer):
             'telegram_notification_sent',
             'telegram_timestamp',
         ]
-        read_only_fields = '__all__'
+        read_only_fields = (
+            'id', 'date_creation', 'date_modification', 'site',
+            'type_alerte', 'severite', 'motif_technique',
+            'valeur_detectee', 'valeur_seuil', 'employe_id_lien',
+            'statut', 'resolution_type', 'resolution_note', 'resolu_par',
+            'date_resolution', 'timestamp_creation',
+            'telegram_notification_sent', 'telegram_timestamp',
+        )
 
 
 class AlerteResolveSerializer(serializers.Serializer):
@@ -328,7 +340,11 @@ class ScoreFiabiliteEmployeSerializer(serializers.ModelSerializer):
             'nombre_operations_mois',
             'date_calcul',
         ]
-        read_only_fields = '__all__'
+        read_only_fields = (
+            'id', 'employe', 'mois_annee', 'score_base', 'total_penalites',
+            'score_final', 'detail_penalites', 'nombre_operations_mois',
+            'date_calcul',
+        )
 
 
 class AuditTrailSerializer(serializers.ModelSerializer):
@@ -349,4 +365,8 @@ class AuditTrailSerializer(serializers.ModelSerializer):
             'adresse_ip',
             'user_agent',
         ]
-        read_only_fields = '__all__'
+        read_only_fields = (
+            'id', 'timestamp', 'employe', 'action', 'table_cible',
+            'record_id', 'donnees_avant', 'donnees_apres',
+            'adresse_ip', 'user_agent',
+        )
