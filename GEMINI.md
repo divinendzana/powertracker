@@ -17,11 +17,11 @@
 
 | Étape | Statut | % Complété | Dernière MAJ |
 |-------|--------|-----------|--------------|
-| Étape 0 - Préparation | ⬜ À faire | 0% | - |
-| Étape 1 - Modélisation DB | ⬜ À faire | 0% | - |
-| Étape 2 - Backend Django | ⬜ À faire | 0% | - |
-| Étape 3 - Frontend React | ⬜ À faire | 0% | - |
-| Étape 4 - Notifications | ⬜ À faire | 0% | - |
+| Étape 0 - Préparation | 🟩 Complété | 100% | 27/08/2026 |
+| Étape 1 - Modélisation DB | 🟩 Complété | 100% | 27/08/2026 |
+| Étape 2 - Backend Django | 🟨 En cours | 90% | 27/08/2026 |
+| Étape 3 - Frontend React | 🟨 En cours | 90% | 27/08/2026 |
+| Étape 4 - Notifications | 🟨 En cours | 70% | 27/08/2026 |
 | Étape 5 - Tests & Deploy | ⬜ À faire | 0% | - |
 
 **Légende**: ⬜ À faire | 🟨 En cours | 🟩 Complété | ❌ Bloqué
@@ -594,10 +594,17 @@ python gemini_helper.py
 **Créé le**: [DATE]  
 **Dernière mise à jour**: [DATE]  
 **Responsable**: Divine  
-**Statut global**: ⬜ À faire
+**Statut global**: 🟨 En cours
+
+### Environnement local (mise en place du 27/08/2026)
+- PostgreSQL 18 est installé sur la machine mais l'instance système écoute sur le **port 2120** sans mot de passe superutilisateur connu → non utilisée par le projet.
+- Une **instance PostgreSQL dédiée au projet** tourne dans le dossier `.pgdata/` (ignoré par Git) :
+  - Port : `5439` (`DB_PORT=5439` dans `.env`)
+  - Base : `powertracker_db`, utilisateur : `powertracker_user` (identifiants repris du `.env`)
+  - Démarrage : `.\scripts\dev-db-start.ps1` — Arrêt : `.\scripts\dev-db-stop.ps1`
+- Redis est ajouté au `docker-compose.yml` (utile pour Celery/notifications quand Docker sera disponible).
 
 ### Bloqueurs actuels
-_À remplir si blocages rencontrés_
 
 ### Prochaines étapes
 1. Démarrer par l'Étape 0 avec Gemini
