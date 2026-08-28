@@ -1,0 +1,13 @@
+django>=4.2,<6
+djangorestframework>=3.14
+django-filter
+psycopg2-binary
+django-cors-headers
+djangorestframework-simplejwt
+python-dotenv
+bcrypt
+celery
+redis
+requests
+python-decouple
+gunicorn
