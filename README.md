@@ -188,8 +188,8 @@ Copiez l'URL HTTPS générée.
 ## 🔐 Comptes de test
 
 ### Administratrice
-- **Email**: `divine.ndzana@camtel.cm`
-- **Password**: `Passw0rd-Secure!`
+- **Email**: `admindivine@camtel.cm`
+- **Password**: `divi1234`
 
 ### Employé
 - **PIN**: `2468`
